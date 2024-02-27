@@ -1,0 +1,12 @@
+{
+  "name": "stock-brokers/wp-theme",
+  "require": {
+    "php-stubs/wordpress-stubs": "^5.3",
+    "eftec/bladeone": "^3.33"
+  },
+  "autoload": {
+    "psr-4": {
+      "StockBrokersTheme\\": "src/"
+    }
+  }
+}

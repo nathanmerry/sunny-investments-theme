@@ -1,0 +1,55 @@
+/** Default **/
+.sb-partner-table .sb-partner-table__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+.sb-partner-table .sb-partner-table__itemLogo {
+  grid-area: 1 / 1 / 3 / 2;
+}
+.sb-partner-table .sb-partner-table__itemRating {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.sb-partner-table .sb-partner-table__itemMinDeposit {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.sb-partner-table .sb-partner-table__itemKeyFeatures {
+  grid-area: 3 / 1 / 4 / 3;
+}
+.sb-partner-table .sb-partner-table__itemCta {
+  grid-area: 4 / 1 / 5 / 3;
+}
+.sb-partner-table .sb-partner-table__itemDisclaimer {
+  grid-area: 5 / 1 / 6 / 3;
+}
+
+/** SM+ **/
+@media (min-width: theme("screens.sm")) {
+  .sb-partner-table .sb-partner-table__grid {
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: auto;
+  }
+  .sb-partner-table .sb-partner-table__itemKeyFeatures {
+    grid-area: 1 / 3 / 3 / 4;
+  }
+  .sb-partner-table .sb-partner-table__itemCta {
+    grid-area: 3 / 1 / 4 / 4;
+  }
+  .sb-partner-table .sb-partner-table__itemDisclaimer {
+    grid-area: 4 / 1 / 5 / 4;
+  }
+}
+
+/** LG+ **/
+@media (min-width: theme("screens.lg")) {
+  .sb-partner-table .sb-partner-table__grid {
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: auto;
+  }
+  .sb-partner-table .sb-partner-table__itemCta {
+    grid-area: 1 / 4 / 3 / 5;
+  }
+  .sb-partner-table .sb-partner-table__itemDisclaimer {
+    grid-area: 3 / 1 / 4 / 5;
+  }
+}

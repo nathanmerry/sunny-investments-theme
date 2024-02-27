@@ -1,0 +1,100 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+/* purgecss start ignore */
+/** Sensible Defaults **/
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: theme("fontSize.base");
+  line-height: theme("lineHeight.normal");
+  word-break: break-word;
+  color: theme("colors.grey.medium");
+  background: theme("colors.grey.lighter");
+}
+h1 {
+  color: theme("colors.black");
+  font-size: theme("fontSize.2xl");
+  font-weight: theme("fontWeight.bold");
+  letter-spacing: -0.02em;
+  line-height: theme("lineHeight.normal");
+  margin: 0 0 theme("spacing.2");
+}
+h2 {
+  color: theme("colors.black");
+  font-size: theme("fontSize.lg");
+  font-weight: theme("fontWeight.semibold");
+  line-height: theme("lineHeight.normal");
+  margin: 0 0 theme("spacing.1");
+}
+h3 {
+  color: theme("colors.black");
+  font-size: theme("fontSize.lg");
+  font-weight: theme("fontWeight.semibold");
+  line-height: theme("lineHeight.normal");
+  margin: 0 0 theme("spacing.1");
+}
+h4 {
+  color: theme("colors.black");
+  font-weight: theme("fontWeight.semibold");
+  line-height: theme("lineHeight.normal");
+  margin: 0 0 theme("spacing.1");
+}
+p {
+  margin: 0 0 theme("spacing.3");
+}
+/* purgecss end ignore */
+
+.sb-block-container {
+  margin: 0 0 -24px;
+}
+.sb-block-container .sb-block {
+  margin: 0 0 theme("spacing.4");
+}
+
+/** Editor **/
+body .wp-block {
+  max-width: 1300px;
+}
+
+/** Focus outline **/
+html body *:focus {
+  outline: none;
+}
+
+/**
+ ** Custom Utilities
+ */
+
+/** Truncate utility **/
+@responsive {
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+}
+
+/** Scale utility **/
+@variants hover, group-hover {
+  .scale-up {
+    transform: scale(1.15);
+  }
+}
+
+/** Animated Fastest - Extra **/
+@responsive {
+  .fastest {
+    animationduration: 0.2s;
+  }
+}
+
+/** Transition **/
+.transition {
+  transition: 0.2s ease-in-out !important;
+}
+
+@import "./sb-partner-table.css";
