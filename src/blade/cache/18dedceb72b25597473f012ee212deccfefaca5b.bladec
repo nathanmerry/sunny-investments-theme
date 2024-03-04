@@ -1,0 +1,9 @@
+<!-- Include Tailwind CSS -->
+
+<div id="adgroupMapper">
+ <adgroup-mapper
+ adgroups='<?php  echo json_encode($adgroups);  ?>'
+ posts='<?php  echo json_encode($posts);  ?>'
+ offers='<?php  echo json_encode($offers);  ?>'
+ />
+</div>

@@ -1,0 +1,12 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('main'); ?>
+<?php while( have_posts() ): ?>
+<?php  the_post()  ?>
+<div class="sb-block-container">
+ <?php echo the_content(); ?>
+
+</div>
+<?php endwhile; ?>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('layouts.default'); } ?>

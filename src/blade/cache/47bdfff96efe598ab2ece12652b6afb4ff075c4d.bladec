@@ -1,0 +1,152 @@
+<div class="sb-block">
+ <?php if(isset($options['rows'])): ?>
+ <div class="sb-partner-table rounded">
+
+ <div class="sb-partner-table__rows">
+ <?php $__currentLoopData = $options['rows']; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $row): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+
+ <?php 
+ $partner = $row['partner'];
+ $logo = wp_get_attachment_image_src( get_post_thumbnail_id( $partner->ID ), 'logo' );
+ $rating = get_field('rating', $partner);
+ $keyFeatures = get_field('keyFeatures', $partner);
+ $minDeposit = get_field('minDeposit', $partner);
+ $legalDisclaimer = get_field('legalDisclaimer', $partner);
+ $ctaText = get_field('ctaText', $partner);
+	    $loopIndex = $loop->index;
+ ?>
+
+ <div class="
+ sb-partner-table__grid sb-partner-table__row
+ <?php if($loop->index%2): ?> bg-grey-lightest <?php else: ?> bg-white <?php endif; ?>
+ <?php if($loop->index === 0): ?> rounded-t <?php endif; ?>
+ <?php if($loop->index === count($options['rows']) -1): ?> rounded-b <?php endif; ?>
+ ">
+ <!-- Logo -->
+ <div class="sb-partner-table__gridItem sb-partner-table__itemLogo">
+ <div class="p-2">
+ <a href="/visit/<?php echo static::e($partner->post_name); ?>" rel="noreferer noopener" target="_blank">
+ <img src="<?php echo static::e($logo[0]); ?>" alt="<?php echo static::e($partner->post_name); ?>" class="block w-full rounded h-24 logo">
+ </a>
+ </div>
+ </div>
+ <!-- End Logo -->
+
+ <!-- Rating -->
+ <div class="sb-partner-table__gridItem sb-partner-table__itemRating rating">
+ <?php 
+ $pos1 = 100;
+ $pos2 = 83;
+ $pos3 = 76;
+ $pos4 = 68;
+ $pos5 = 61;
+ $pos6 = 56;
+ ?>
+ <?php switch ($loopIndex) {
+ case (0): ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos1); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos1/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php break; ?>
+ <?php case (1): ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos2); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos2/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php break; ?>
+ <?php case (2): ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos3); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos3/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php break; ?>
+ <?php case (3): ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos4); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos4/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php break; ?>
+ <?php case (4): ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos5); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos5/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php break; ?>
+ <?php default: ?>
+ <div class="text-orange text-xl md:text-lg bolder"><?php echo static::e($pos6); ?></div>
+ <div class="text-orange text-lg">
+ <?php for($i = 0; $i < $pos6/20; $i++): ?>
+ <span class="sb-partner-table__star">&#9733;</span>
+ <?php endfor; ?>
+ </div>
+ <?php } // end switch ?>
+ </div>
+ <!-- End Rating -->
+
+ <!-- Min Deposit -->
+ <div class="sb-partner-table__gridItem sb-partner-table__itemMinDeposit min_deposit">
+ <div class="-mt-2 min_deposit_div text-lg" style="font-size: 16px;">
+ <?php echo static::e($minDeposit); ?>
+
+ </div>
+ </div>
+ <!-- End Min Deposit -->
+
+ <!-- Key Features -->
+ <div class="sb-partner-table__gridItem sb-partner-table__itemKeyFeatures features">
+ <div class="flex flex-wrap flex-col p-2">
+ <?php $__currentLoopData = $keyFeatures; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $keyFeature): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <div class="flex text-sm">
+ <span class="text-green mr-1">&#10004;</span>
+ <span><?php echo static::e($keyFeature['item']); ?></span>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ </div>
+ <!-- End Key Features -->
+
+ <!-- Cta -->
+ <div class="sb-partner-table__gridItem sb-partner-table__itemCta cta">
+ <div class="px-2 pb-2 lg:pt-2">
+ <a href="/visit/<?php echo static::e($partner->post_name); ?>" rel="noreferer noopener" target="_blank"
+ class="block bg-green rounded text-center text-white font-semibold px-4 py-2 hover:bg-green-accent">
+ <?php echo static::e($ctaText); ?>
+
+ </a>
+ </div>
+ </div>
+ <!-- End Cta -->
+
+ <!-- Disclaimer -->
+ <?php if($legalDisclaimer): ?>
+ <div class="sb-partner-table__gridItem sb-partner-table__itemDisclaimer">
+ <div class="text-xs px-2 pb-2" style="text-align: center; font-style: italic;">
+ <div class="bg-grey-lighter rounded p-1">
+ <?php echo static::e($legalDisclaimer); ?>
+
+ </div>
+ </div>
+ </div>
+ <?php endif; ?>
+ <!-- End Disclaimer -->
+ </div>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ </div>
+
+ <?php else: ?>
+ No rows in table.
+ <?php endif; ?>
+</div>

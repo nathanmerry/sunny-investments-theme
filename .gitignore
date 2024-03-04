@@ -1,4 +1,4 @@
-dist
-vendor
-node_modules
-src/blade/cache
+# dist
+# vendor
+# node_modules
+# src/blade/cache
